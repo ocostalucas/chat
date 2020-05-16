@@ -1,5 +1,6 @@
 import 'package:chat/chat_message.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -95,11 +96,20 @@ class _ChatScreenState extends State<ChatScreen> {
     Firestore.instance.collection('messages').add(data);
   }
 
+  void changeBrightness() {
+    DynamicTheme.of(context).setBrightness(
+        Theme.of(context).brightness == Brightness.dark
+            ? Brightness.light
+            : Brightness.dark);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        leading: IconButton(
+            icon: Icon(Icons.lightbulb_outline), onPressed: changeBrightness),
         title: Text(_currentUser != null
             ? 'Hello, ${_currentUser.displayName}'
             : 'Chat App'),
@@ -141,10 +151,8 @@ class _ChatScreenState extends State<ChatScreen> {
                       itemCount: documents.length,
                       reverse: true,
                       itemBuilder: (context, index) {
-                        return ChatMessage(
-                        documents[index].data,
-                        documents[index].data['uid'] == _currentUser?.uid
-                        );
+                        return ChatMessage(documents[index].data,
+                            documents[index].data['uid'] == _currentUser?.uid);
                       });
               }
             },

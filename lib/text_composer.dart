@@ -29,7 +29,7 @@ class _TextComposerState extends State<TextComposer> {
       child: Row(
         children: <Widget>[
           IconButton(
-            icon: Icon(Icons.photo_camera),
+            icon: Icon(Icons.photo_camera, color: Colors.teal,),
             onPressed: () async {
               final File imgFile = 
                 await ImagePicker.pickImage(source: ImageSource.camera);
