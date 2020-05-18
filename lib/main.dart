@@ -24,17 +24,5 @@ class MyApp extends StatelessWidget {
          );
        }
     );
-  
-    // return MaterialApp(
-    //   title: 'Chat Flutter',
-    //   debugShowCheckedModeBanner: false,
-    //   theme: ThemeData(
-    //     primarySwatch: Colors.blue,
-    //     iconTheme: IconThemeData(
-    //       color: Colors.blue
-    //     )
-    //   ),
-    //   home: ChatScreen(),"
-    // );
   }
 }
