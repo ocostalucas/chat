@@ -3,7 +3,7 @@
 A **CHAT App** built with Flutter, using Firebase, Google sign in and device camera integration.
 
 <h1 align="center">
-    <img alt="Template" src="./assets/chat" width="300px" />
+    <img alt="Template" src="./assets/chat.gif" width="300px" />
 </h1>
  
 
